@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kora Hair - Reserva tu cita y agendamiento de turnos capilares.">
+  <title>Kora Hair | Agenda de Turnos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navegación principal -->
+  <header class="sticky-top bg-white border-bottom">
+    <nav class="navbar navbar-expand-lg container py-3" aria-label="Navegación principal">
+      <a class="navbar-brand fs-2 tracking-wide" href="index.html">KORA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre-mi.html">Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="boutique.html">Boutique</a></li>
+          <li class="nav-item"><a class="nav-link" href="test.html">Tu Brújula Capilar</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <a href="carrito.html" class="text-decoration-none text-dark fw-medium">Carrito</a>
+          <a href="turnos.html" class="btn btn-kora active">Agendar Turno</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Contenido Agenda de Turnos -->
+  <main class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="text-center mb-5">
+          <p class="text-uppercase small fw-semibold text-muted mb-2">Reserva online</p>
+          <h1 class="display-4">Agenda de <span class="text-kora-accent">Turnos</span></h1>
+          <p class="lead text-muted">Selecciona el servicio y el horario que mejor se adapten a vos.</p>
+        </div>
+
+        <div class="card border-0 shadow-sm p-4 p-md-5 rounded-4 bg-white">
+          <form>
+            <div class="mb-3">
+              <label for="nombre" class="form-label fw-medium">Nombre y Apellido</label>
+              <input type="text" class="form-control" id="nombre" placeholder="Ej. Ana Pérez" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label fw-medium">Correo Electrónico</label>
+              <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com" required>
+            </div>
+            <div class="mb-3">
+              <label for="servicioSelect" class="form-label fw-medium">Seleccionar Servicio</label>
+              <select class="form-select" id="servicioSelect" required>
+                <option value="" selected disabled>Elige un servicio...</option>
+                <option value="diagnostico">Diagnóstico Capilar Integral</option>
+                <option value="hidratacion">Ritual de Hidratación Profunda</option>
+                <option value="corte">Corte Terapéutico y Asesoría</option>
+              </select>
+            </div>
+            <div class="row mb-4">
+              <div class="col-md-6 mb-3 mb-md-0">
+                <label for="fechaTurno" class="form-label fw-medium">Fecha Preferida</label>
+                <input type="date" class="form-control" id="fechaTurno" required>
+              </div>
+              <div class="col-md-6">
+                <label for="horaTurno" class="form-label fw-medium">Horario</label>
+                <select class="form-select" id="horaTurno" required>
+                  <option value="" selected disabled>Elige un horario...</option>
+                  <option value="09:00">09:00 hs</option>
+                  <option value="11:00">11:00 hs</option>
+                  <option value="15:00">15:00 hs</option>
+                  <option value="17:30">17:30 hs</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-kora w-100 py-3">Confirmar y Solicitar Turno</button>
+          </form>
+        </div>
+
+        <div class="text-center mt-4">
+          <img src="img/fraseeterno.jpeg" alt="Vista previa de agenda Kora Hair" class="img-fluid rounded-4 shadow mt-3 w-50">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-kora-dark text-white border-top border-secondary py-4 mt-5">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <span class="fs-4 fw-bold" style="font-family: 'Cormorant Garamond', serif;">KORA</span>
+      <p class="mb-0 small opacity-75">&copy; 2026 Kora Hair - Tu Brújula Capilar. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
