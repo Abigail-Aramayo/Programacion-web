@@ -41,8 +41,4 @@ El sitio cuenta con 10 vistas maquetadas:
 10. `contacto.html` (Medios de contacto y ubicación)
 
 ## 📊 Auditoría y Rendimiento (Lighthouse)
-El sitio fue auditado mediante Google Chrome DevTools, obteniendo excelentes métricas de calidad, accesibilidad y rendimiento:
-* **Performance:** 94
-* **Accessibility:** 95
-* **Best Practices:** 96
-* **SEO:** 100 
+<img width="1360" height="716" alt="INSPECCION" src="https://github.com/user-attachments/assets/811c30f2-6d81-472c-9035-a8dc6d1bb870" />
