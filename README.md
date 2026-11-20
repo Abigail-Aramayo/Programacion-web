@@ -42,7 +42,8 @@ El sitio cuenta con 10 vistas maquetadas:
 
 ## 📊 Auditoría y Rendimiento (Lighthouse)
 <img width="1314" height="635" alt="image" src="https://github.com/user-attachments/assets/7ec74cdb-516e-47cd-b9b9-d9153883173f" />
-
+## Sitio de produccion estatica GitHub Pages
+https://abigail-aramayo.github.io/Programacion-web/
 
 ---
 
@@ -61,19 +62,19 @@ Se evolucionó la maqueta estática del TP3 (HTML + Bootstrap) a una aplicación
 ```text
 Programacion-web/
 ├── config/
-│   └── env.php            # lee el .env y define APP_NAME, APP_EMAIL, APP_ENV
+│   └── env.php          
 ├── includes/
-│   ├── header.php         # <head>, metadatos, CSS y título dinámico
-│   ├── nav.php            # barra superior + menú con clase "active"
-│   └── footer.php         # pie de página + scripts JS
+│   ├── header.php        
+│   ├── nav.php          
+│   └── footer.php        
 ├── css/  js/  img/  docs/capturas/
 ├── index.php  sobre-mi.php  servicios.php  detalle-servicios.php
 ├── turnos.php  boutique.php  detalle-del-producto.php  carrito.php
 ├── test.php  contacto.php  login.php  registro.php
-├── .env                   # NO se sube a GitHub (ignorado)
-├── .env.example           # plantilla de variables de entorno
+├── .env                  
+├── .env.example         
 ├── .gitignore
-└── .htaccess              # bloquea el acceso web al archivo .env
+└── .htaccess          
 ```
 
 ### Instalación y ejecución local
