@@ -41,4 +41,5 @@ El sitio cuenta con 10 vistas maquetadas:
 10. `contacto.html` (Medios de contacto y ubicación)
 
 ## 📊 Auditoría y Rendimiento (Lighthouse)
-<img width="1360" height="716" alt="INSPECCION" src="https://github.com/user-attachments/assets/811c30f2-6d81-472c-9035-a8dc6d1bb870" />
+<img width="1314" height="635" alt="image" src="https://github.com/user-attachments/assets/7ec74cdb-516e-47cd-b9b9-d9153883173f" />
+
