@@ -1,47 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kora Hair, tu brújula capilar. Salón de tratamientos capilares personalizados y boutique de productos.">
-  <title>Kora Hair | Inicio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  
-
-  <header class="site-header">
-    <nav class="navbar navbar-expand-lg k-container" aria-label="Navegación principal">
-      <a class="brand" href="index.html" aria-label="Kora Hair, inicio">
-        <span class="brand__name">KORA</span>
-        <span class="brand__sub">HAIR · TU BRÚJULA CAPILAR</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="menuPrincipal">
-        <ul class="navbar-nav menu-principal">
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="sobre-mi.html">Sobre mí</a></li>
-          <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
-          <li class="nav-item"><a class="nav-link" href="boutique.html">Boutique</a></li>
-          <li class="nav-item"><a class="nav-link" href="test.html">Tu Brújula Capilar</a></li>
-          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-        </ul>
-        <div class="acciones">
-          <a href="login.html" class="icono-btn" aria-label="Mi cuenta"><i class="bi bi-person"></i></a>
-          <a href="carrito.html" class="icono-btn" aria-label="Carrito"><i class="bi bi-bag"></i><span class="badge-k" data-carrito-badge>1</span></a>
-          <a href="turnos.html" class="btn-kora btn-kora--sm">Agendar turno <i class="bi bi-arrow-right"></i></a>
-        </div>
-      </div>
-    </nav>
-  </header>
-
+<?php
+$titulo_pagina      = 'Inicio';
+$descripcion_pagina = 'Kora Hair, tu brújula capilar. Salón de tratamientos capilares personalizados y boutique de productos.';
+$mostrar_topbar     = false;   // esta página no muestra la barra superior
+require_once __DIR__ . '/includes/header.php';
+?>
   <main>
     <section class="hero">
       <div class="hero__texto">
@@ -49,8 +11,8 @@
         <h1 class="h-display">Tu cabello.<br>Tu esencia.<br><em>Tu brújula.</em></h1>
         <p class="lead-k">Experiencias capilares diseñadas para revelar la mejor versión de tu cabello, sin dejar de ser vos.</p>
         <div class="hero__botones">
-          <a href="turnos.html" class="btn-kora">Agendar mi experiencia <i class="bi bi-arrow-right"></i></a>
-          <a href="servicios.html" class="link-flecha">Descubrir mi rutina <i class="bi bi-arrow-right"></i></a>
+          <a href="turnos.php" class="btn-kora">Agendar mi experiencia <i class="bi bi-arrow-right"></i></a>
+          <a href="servicios.php" class="link-flecha">Descubrir mi rutina <i class="bi bi-arrow-right"></i></a>
         </div>
       </div>
       <div class="hero__foto">
@@ -78,10 +40,10 @@
             <span class="eyebrow">Tratamientos a tu medida</span>
             <h2 class="h-xl">El ritual que tu<br>cabello <em>necesita.</em></h2>
           </div>
-          <a href="servicios.html" class="link-flecha">Ver todos los servicios <i class="bi bi-arrow-right"></i></a>
+          <a href="servicios.php" class="link-flecha">Ver todos los servicios <i class="bi bi-arrow-right"></i></a>
         </div>
         <div class="rituales">
-          <a href="detalle-servicios.html" class="ritual-card">
+          <a href="detalle-servicios.php" class="ritual-card">
             <div class="ritual-card__arte" style="background:#EFE2DF"><span>01</span>
             <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
               <ellipse cx="270" cy="115" rx="105" ry="170" transform="rotate(18 270 115)" fill="#DDD0CC"/>
@@ -95,7 +57,7 @@
               <i class="bi bi-arrow-right"></i>
             </div>
           </a>
-          <a href="detalle-servicios.html" class="ritual-card">
+          <a href="detalle-servicios.php" class="ritual-card">
             <div class="ritual-card__arte" style="background:#D8C1C3"><span>02</span>
             <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
               <ellipse cx="270" cy="115" rx="105" ry="170" transform="rotate(18 270 115)" fill="#C7B0B2"/>
@@ -109,7 +71,7 @@
               <i class="bi bi-arrow-right"></i>
             </div>
           </a>
-          <a href="detalle-servicios.html" class="ritual-card">
+          <a href="detalle-servicios.php" class="ritual-card">
             <div class="ritual-card__arte" style="background:#D9D3CF"><span>03</span>
             <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
               <ellipse cx="270" cy="115" rx="105" ry="170" transform="rotate(18 270 115)" fill="#C9C2BD"/>
@@ -141,7 +103,7 @@
           <span class="eyebrow eyebrow--claro">Tu brújula capilar</span>
           <h2>¿No sabés qué necesita tu cabello? <em>Te guiamos.</em></h2>
           <p>Respondé unas preguntas rápidas y recibí una recomendación personalizada para tu tipo de cabello.</p>
-          <a href="test.html" class="btn-kora-blanco btn-kora mt-3">Hacer el test <i class="bi bi-arrow-right"></i></a>
+          <a href="test.php" class="btn-kora-blanco btn-kora mt-3">Hacer el test <i class="bi bi-arrow-right"></i></a>
         </div>
       </div>
     </section>
@@ -153,18 +115,18 @@
             <span class="eyebrow">La boutique Kora</span>
             <h2 class="h-xl">El salón,<br><em>en tu casa.</em></h2>
           </div>
-          <a href="boutique.html" class="link-flecha">Explorar boutique <i class="bi bi-arrow-right"></i></a>
+          <a href="boutique.php" class="link-flecha">Explorar boutique <i class="bi bi-arrow-right"></i></a>
         </div>
         <div class="productos productos--3">
           <article class="producto" data-categoria="tratamiento">
-            <a href="detalle-del-producto.html" class="producto__img producto__img--negro" aria-label="Ver Reparador de Puntas">
+            <a href="detalle-del-producto.php" class="producto__img producto__img--negro" aria-label="Ver Reparador de Puntas">
               <span class="producto__tag">Más vendido</span>
               <img src="img/producto-reparador.jpg" alt="Frasco de Reparador de Puntas Influencia Profesional de 45 ml" loading="lazy">
             </a>
             <button class="producto__fav" type="button" aria-label="Guardar en favoritos"><i class="bi bi-heart"></i></button>
             <div class="producto__info">
               <span class="producto__cat">Tratamiento</span>
-              <h3><a href="detalle-del-producto.html">Reparador de Puntas</a></h3>
+              <h3><a href="detalle-del-producto.php">Reparador de Puntas</a></h3>
               <p class="producto__desc">Reparación &amp; brillo</p>
               <div class="producto__fila">
                 <span class="producto__precio">$14.500</span>
@@ -173,14 +135,14 @@
             </div>
           </article>
           <article class="producto" data-categoria="limpieza">
-            <a href="detalle-del-producto.html" class="producto__img producto__img--blanco" aria-label="Ver Shampoo Extra-Suave">
+            <a href="detalle-del-producto.php" class="producto__img producto__img--blanco" aria-label="Ver Shampoo Extra-Suave">
               <span class="producto__tag">Nuevo</span>
               <img src="img/producto-shampoo.jpg" alt="Shampoo Extra-Suave Ducray de 200 ml" loading="lazy">
             </a>
             <button class="producto__fav" type="button" aria-label="Guardar en favoritos"><i class="bi bi-heart"></i></button>
             <div class="producto__info">
               <span class="producto__cat">Limpieza</span>
-              <h3><a href="detalle-del-producto.html">Shampoo Extra-Suave</a></h3>
+              <h3><a href="detalle-del-producto.php">Shampoo Extra-Suave</a></h3>
               <p class="producto__desc">Limpieza delicada</p>
               <div class="producto__fila">
                 <span class="producto__precio">$11.800</span>
@@ -189,13 +151,13 @@
             </div>
           </article>
           <article class="producto" data-categoria="nutricion">
-            <a href="detalle-del-producto.html" class="producto__img producto__img--foto" aria-label="Ver Máscara Nutritiva Keratina">
+            <a href="detalle-del-producto.php" class="producto__img producto__img--foto" aria-label="Ver Máscara Nutritiva Keratina">
               <img src="img/producto-mascara.jpg" alt="Máscara Nutritiva con Keratina, jojoba y lino" loading="lazy">
             </a>
             <button class="producto__fav" type="button" aria-label="Guardar en favoritos"><i class="bi bi-heart"></i></button>
             <div class="producto__info">
               <span class="producto__cat">Nutrición</span>
-              <h3><a href="detalle-del-producto.html">Máscara Nutritiva Keratina</a></h3>
+              <h3><a href="detalle-del-producto.php">Máscara Nutritiva Keratina</a></h3>
               <p class="producto__desc">Nutrición profunda</p>
               <div class="producto__fila">
                 <span class="producto__precio">$18.900</span>
@@ -216,46 +178,4 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="k-container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="brand" href="index.html"><span class="brand__name">KORA</span><span class="brand__sub">HAIR · TU BRÚJULA CAPILAR</span></a>
-          <p class="footer-lema">Cuidamos tu cabello.<br>Acompañamos tu historia.</p>
-        </div>
-        <div>
-          <h4 class="footer-titulo">Explorar</h4>
-          <ul class="footer-links">
-            <li><a href="servicios.html">Servicios</a></li>
-            <li><a href="boutique.html">Boutique</a></li>
-            <li><a href="test.html">Test capilar</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="footer-titulo">Ayuda</h4>
-          <ul class="footer-links">
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="turnos.html">Agendar turno</a></li>
-            <li><a href="login.html">Mi cuenta</a></li>
-          </ul>
-        </div>
-        <div class="footer-news">
-          <h4 class="footer-titulo">Carta de Kora</h4>
-          <h4>Consejos que sí le sirven<br>a tu cabello.</h4>
-          <form class="news-form" data-form-demo>
-            <input type="email" placeholder="Tu correo electrónico" aria-label="Tu correo electrónico" required>
-            <button type="submit" aria-label="Suscribirme"><i class="bi bi-arrow-right"></i></button>
-          </form>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 Kora Hair. Todos los derechos reservados.</span>
-        <span>Salta, Argentina</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main.js"></script>
-</body>
-</html>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

@@ -560,3 +560,7 @@ em, .k-em { font-style: italic; color: var(--k-rosa); }
   .servicio-fila__img { width: 10rem; height: 7rem; }
 }
 .prod-detalle__img { mix-blend-mode: lighten; }
+
+/* TP4 · email en el footer */
+.footer-mail { display: inline-block; margin-top: 1.2rem; font-size: .74rem; color: #fff; opacity: .85; border-bottom: 1px solid rgba(255,255,255,.3); }
+.footer-mail:hover { color: var(--k-rosa); opacity: 1; }
