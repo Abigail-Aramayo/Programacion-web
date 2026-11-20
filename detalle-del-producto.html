@@ -3,67 +3,125 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kora Hair Boutique - Detalle de producto capilar.">
-  <title>Kora Hair | Detalle de Producto</title>
+  <meta name="description" content="Reparador de Puntas: sérum liviano de acabado sedoso que controla el frizz y potencia el brillo.">
+  <title>Kora Hair | Reparador de Puntas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <div class="topbar">Envíos gratis desde $85.000 <span class="dot">•</span> Tu primer diagnóstico capilar es sin cargo</div>
 
-  <!-- Navegación principal -->
-  <header class="sticky-top bg-white border-bottom">
-    <nav class="navbar navbar-expand-lg container py-3" aria-label="Navegación principal">
-      <a class="navbar-brand fs-2 tracking-wide" href="index.html">KORA</a>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg k-container" aria-label="Navegación principal">
+      <a class="brand" href="index.html" aria-label="Kora Hair, inicio">
+        <span class="brand__name">KORA</span>
+        <span class="brand__sub">HAIR · TU BRÚJULA CAPILAR</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="menuPrincipal">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+        <ul class="navbar-nav menu-principal">
           <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="sobre-mi.html">Sobre mí</a></li>
           <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
-          <li class="nav-item"><a class="nav-link active fw-semibold" aria-current="page" href="tienda-online.html">Boutique</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="boutique.html">Boutique</a></li>
           <li class="nav-item"><a class="nav-link" href="test.html">Tu Brújula Capilar</a></li>
           <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
         </ul>
-        <div class="d-flex align-items-center gap-3">
-          <a href="carrito.html" class="text-decoration-none text-dark fw-medium">Carrito</a>
-          <a href="turnos.html" class="btn btn-kora">Agendar Turno</a>
+        <div class="acciones">
+          <a href="login.html" class="icono-btn" aria-label="Mi cuenta"><i class="bi bi-person"></i></a>
+          <a href="carrito.html" class="icono-btn" aria-label="Carrito"><i class="bi bi-bag"></i><span class="badge-k" data-carrito-badge>1</span></a>
+          <a href="turnos.html" class="btn-kora btn-kora--sm">Agendar turno <i class="bi bi-arrow-right"></i></a>
         </div>
       </div>
     </nav>
   </header>
 
-  <!-- Contenido Detalle de Producto -->
-  <main class="container py-5">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-6">
-        <img src="img/DESCRIPCION%20DE%20PRODUCTOS.png" alt="Shampoo Detox Equilibrante Kora Hair" class="img-fluid rounded-4 shadow">
+  <main>
+    <section class="prod-detalle">
+      <div class="prod-detalle__visor">
+        <button class="flecha" type="button" aria-label="Imagen anterior"><i class="bi bi-chevron-left"></i></button>
+        <img class="prod-detalle__img" src="img/producto-reparador.jpg" alt="Frasco de Reparador de Puntas de 45 ml con una gota de producto">
+        <div class="puntos"><i></i><i></i><i></i></div>
       </div>
-      <div class="col-lg-6">
-        <span class="badge bg-light text-dark mb-2">Boutique</span>
-        <h1 class="display-4 mb-3">Shampoo Detox <span class="text-kora-accent">Equilibrante</span></h1>
-        <p class="h3 fw-bold mb-3">$18.500</p>
-        <p class="text-muted mb-4">
-          Fórmula purificante diseñada para limpiar en profundidad el cuero cabelludo, removiendo residuos de productos y polución sin alterar la hidratación natural de las puntas.
-        </p>
-        <div class="mb-4">
-          <label for="cantidad" class="form-label fw-medium">Cantidad</label>
-          <input type="number" id="cantidad" class="form-control w-25" value="1" min="1">
+      <div class="prod-detalle__info">
+        <div class="migas"><a href="boutique.html">← Volver a la boutique</a><span>Tratamiento · 45 ml</span></div>
+        <h1>Reparador<br><em>de Puntas.</em></h1>
+        <div class="estrellas"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> 4,9 · 48 reseñas</div>
+        <p class="descripcion">Un sérum liviano de acabado sedoso que controla el frizz, protege las puntas y potencia el brillo sin peso.</p>
+        <p class="prod-precio">$14.500</p>
+        <div class="compra">
+          <div class="cantidad" data-cantidad>
+            <button type="button" data-menos aria-label="Menos"><i class="bi bi-dash"></i></button>
+            <span data-valor>1</span>
+            <button type="button" data-mas aria-label="Más"><i class="bi bi-plus"></i></button>
+          </div>
+          <button class="btn-kora" type="button" data-agregar>Agregar al carrito <i class="bi bi-arrow-right"></i></button>
         </div>
-        <a href="carrito.html" class="btn btn-kora btn-lg">Agregar al Carrito</a>
+        <ul class="beneficios">
+          <li><i class="bi bi-check2"></i> Brillo inmediato sin efecto graso</li>
+          <li><i class="bi bi-check2"></i> Protección térmica hasta 180°</li>
+          <li><i class="bi bi-check2"></i> Apto para todo tipo de cabello</li>
+        </ul>
+        <div class="accordion acordeon-k" id="acordeonProducto">
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ingredientes" aria-expanded="true" aria-controls="ingredientes">Ingredientes clave</button></h2>
+            <div id="ingredientes" class="accordion-collapse collapse show" data-bs-parent="#acordeonProducto"><div class="accordion-body">Aceite de jojoba, escualano vegetal y vitamina E. Fórmula vegana, sin siliconas pesadas.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#modoUso" aria-expanded="false" aria-controls="modoUso">Modo de uso</button></h2>
+            <div id="modoUso" class="accordion-collapse collapse" data-bs-parent="#acordeonProducto"><div class="accordion-body">Aplicar 2 o 3 gotas en las manos, distribuir en medios y puntas con el cabello seco o húmedo. No enjuagar.</div></div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-kora-dark text-white border-top border-secondary py-4 mt-5">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-      <span class="fs-4 fw-bold" style="font-family: 'Cormorant Garamond', serif;">KORA</span>
-      <p class="mb-0 small opacity-75">© 2026 Kora Hair - Tu Brújula Capilar. Todos los derechos reservados.</p>
+  <footer class="site-footer">
+    <div class="k-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html"><span class="brand__name">KORA</span><span class="brand__sub">HAIR · TU BRÚJULA CAPILAR</span></a>
+          <p class="footer-lema">Cuidamos tu cabello.<br>Acompañamos tu historia.</p>
+        </div>
+        <div>
+          <h4 class="footer-titulo">Explorar</h4>
+          <ul class="footer-links">
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="boutique.html">Boutique</a></li>
+            <li><a href="test.html">Test capilar</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-titulo">Ayuda</h4>
+          <ul class="footer-links">
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="turnos.html">Agendar turno</a></li>
+            <li><a href="login.html">Mi cuenta</a></li>
+          </ul>
+        </div>
+        <div class="footer-news">
+          <h4 class="footer-titulo">Carta de Kora</h4>
+          <h4>Consejos que sí le sirven<br>a tu cabello.</h4>
+          <form class="news-form" data-form-demo>
+            <input type="email" placeholder="Tu correo electrónico" aria-label="Tu correo electrónico" required>
+            <button type="submit" aria-label="Suscribirme"><i class="bi bi-arrow-right"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Kora Hair. Todos los derechos reservados.</span>
+        <span>Salta, Argentina</span>
+      </div>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

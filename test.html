@@ -3,88 +3,134 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kora Hair - Test Capilar para descubrir las necesidades de tu cabello.">
+  <meta name="description" content="Respondé tres preguntas y recibí una recomendación capilar personalizada.">
   <title>Kora Hair | Tu Brújula Capilar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <div class="topbar">Envíos gratis desde $85.000 <span class="dot">•</span> Tu primer diagnóstico capilar es sin cargo</div>
 
-  <!-- Navegación principal -->
-  <header class="sticky-top bg-white border-bottom">
-    <nav class="navbar navbar-expand-lg container py-3" aria-label="Navegación principal">
-      <a class="navbar-brand fs-2 tracking-wide" href="index.html">KORA</a>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg k-container" aria-label="Navegación principal">
+      <a class="brand" href="index.html" aria-label="Kora Hair, inicio">
+        <span class="brand__name">KORA</span>
+        <span class="brand__sub">HAIR · TU BRÚJULA CAPILAR</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="menuPrincipal">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+        <ul class="navbar-nav menu-principal">
           <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="sobre-mi.html">Sobre mí</a></li>
           <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
-          <li class="nav-item"><a class="nav-link" href="tienda-online.html">Boutique</a></li>
-          <li class="nav-item"><a class="nav-link active fw-semibold" aria-current="page" href="test.html">Tu Brújula Capilar</a></li>
+          <li class="nav-item"><a class="nav-link" href="boutique.html">Boutique</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="test.html">Tu Brújula Capilar</a></li>
           <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
         </ul>
-        <div class="d-flex align-items-center gap-3">
-          <a href="carrito.html" class="text-decoration-none text-dark fw-medium">Carrito</a>
-          <a href="turnos.html" class="btn btn-kora">Agendar Turno</a>
+        <div class="acciones">
+          <a href="login.html" class="icono-btn" aria-label="Mi cuenta"><i class="bi bi-person"></i></a>
+          <a href="carrito.html" class="icono-btn" aria-label="Carrito"><i class="bi bi-bag"></i><span class="badge-k" data-carrito-badge>1</span></a>
+          <a href="turnos.html" class="btn-kora btn-kora--sm">Agendar turno <i class="bi bi-arrow-right"></i></a>
         </div>
       </div>
     </nav>
   </header>
 
-  <!-- Contenido Test Capilar -->
-  <main class="container py-5">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-6">
-        <p class="text-uppercase small fw-semibold text-muted mb-2">Descubre tu rutina ideal</p>
-        <h1 class="display-4 mb-3">Tu Brújula <span class="text-kora-accent">Capilar</span></h1>
-        <p class="lead text-muted mb-4">
-          ¿No sabes qué elegir? Deja que nuestro test interactivo te guíe hacia el diagnóstico exacto que tu fibra capilar necesita hoy.
-        </p>
-        <a href="#testForm" class="btn btn-kora mb-4">Comenzar el Test</a>
+  <main>
+    <section class="test">
+      <div class="k-container test__grid">
         <div>
-          <img src="img/diagnostico.jpeg" alt="Test capilar Kora Hair" class="img-fluid rounded-4 shadow">
+          <div class="test__intro">
+            <svg class="emblema" viewBox="0 0 120 120" fill="none" stroke="#fff" stroke-width=".6" aria-hidden="true">
+  <circle cx="60" cy="60" r="56" opacity=".55"/>
+  <ellipse cx="60" cy="60" rx="46" ry="26" transform="rotate(45 60 60)" opacity=".7"/>
+  <ellipse cx="60" cy="60" rx="46" ry="26" transform="rotate(-45 60 60)" opacity=".7"/>
+  <rect x="38" y="38" width="44" height="44" transform="rotate(45 60 60)" opacity=".8"/>
+  <text x="60" y="10" text-anchor="middle" font-size="5" fill="#fff" stroke="none">N</text>
+  <text x="60" y="73" text-anchor="middle" font-family="Playfair Display, serif" font-size="34" fill="#fff" stroke="none">K</text>
+</svg>
+            <div>
+              <span class="eyebrow eyebrow--claro">Tu brújula capilar</span>
+              <h1>Tu cabello habla. <em>Vamos a escucharlo.</em></h1>
+            </div>
+          </div>
+          <div class="test__intro" style="grid-template-columns:1fr;margin-top:0">
+            <div>
+              <p>Un diagnóstico simple para orientarte hacia una rutina que realmente tenga sentido para vos.</p>
+              <div class="test__meta"><span><i class="bi bi-clock"></i>3 minutos</span><span><i class="bi bi-stars"></i>Recomendación personalizada</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-card" id="testCard">
+          <div id="testPregunta">
+            <span class="mini-label" id="testPaso" style="color:var(--k-rosa)">Pregunta 1 de 3</span>
+            <div class="progreso"><div id="testBarra"></div></div>
+            <h2 id="testTitulo">¿Cómo sentís tu cabello hoy?</h2>
+            <p class="sub" id="testSub">Elegí la opción que más se acerque a vos.</p>
+            <div class="opciones" id="testOpciones"></div>
+          </div>
+          <div class="resultado" id="testResultado" hidden>
+            <div class="chispa"><i class="bi bi-stars"></i></div>
+            <span class="eyebrow eyebrow--rosa eyebrow--centro" style="margin:0">Tu norte capilar</span>
+            <h2>Tu cabello pide <em id="testResTexto">reconstrucción + nutrición.</em></h2>
+            <p id="testResDesc">Por tus respuestas, recomendamos comenzar con un ritual reparador y sostenerlo con nutrición liviana en casa.</p>
+            <div class="botones">
+              <a href="turnos.html" class="btn-kora">Agendar diagnóstico <i class="bi bi-arrow-right"></i></a>
+              <a href="boutique.html" class="btn-kora-borde btn-kora">Ver rutina sugerida <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-lg-6">
-        <div id="testForm" class="card border-0 shadow-sm p-4 p-md-5 rounded-4 bg-white">
-          <h2 class="h4 mb-4">Cuestionario Rápido</h2>
-          <form>
-            <div class="mb-3">
-              <label class="form-label fw-medium">1. ¿Cómo sientes tu cuero cabelludo habitualmente?</label>
-              <select class="form-select" required>
-                <option value="" selected disabled>Selecciona una opción...</option>
-                <option>Tiende a engrasarse rápido</option>
-                <option>Sensible o con tendencia a descamación</option>
-                <option>Normal / Equilibrado</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label class="form-label fw-medium">2. ¿Cuál es el estado principal de tus puntas?</label>
-              <select class="form-select" required>
-                <option value="" selected disabled>Selecciona una opción...</option>
-                <option>Secas y abiertas</option>
-                <option>Quebradizas</option>
-                <option>Saludables y suaves</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-kora w-100 py-3 mt-3">Obtener Recomendación</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="k-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html"><span class="brand__name">KORA</span><span class="brand__sub">HAIR · TU BRÚJULA CAPILAR</span></a>
+          <p class="footer-lema">Cuidamos tu cabello.<br>Acompañamos tu historia.</p>
+        </div>
+        <div>
+          <h4 class="footer-titulo">Explorar</h4>
+          <ul class="footer-links">
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="boutique.html">Boutique</a></li>
+            <li><a href="test.html">Test capilar</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-titulo">Ayuda</h4>
+          <ul class="footer-links">
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="turnos.html">Agendar turno</a></li>
+            <li><a href="login.html">Mi cuenta</a></li>
+          </ul>
+        </div>
+        <div class="footer-news">
+          <h4 class="footer-titulo">Carta de Kora</h4>
+          <h4>Consejos que sí le sirven<br>a tu cabello.</h4>
+          <form class="news-form" data-form-demo>
+            <input type="email" placeholder="Tu correo electrónico" aria-label="Tu correo electrónico" required>
+            <button type="submit" aria-label="Suscribirme"><i class="bi bi-arrow-right"></i></button>
           </form>
         </div>
       </div>
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-kora-dark text-white border-top border-secondary py-4 mt-5">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-      <span class="fs-4 fw-bold" style="font-family: 'Cormorant Garamond', serif;">KORA</span>
-      <p class="mb-0 small opacity-75">© 2026 Kora Hair - Tu Brújula Capilar. Todos los derechos reservados.</p>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Kora Hair. Todos los derechos reservados.</span>
+        <span>Salta, Argentina</span>
+      </div>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

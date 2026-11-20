@@ -3,72 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kora Hair - Servicios y tratamientos capilares personalizados.">
+  <meta name="description" content="Rituales capilares de nutrición, hidratación, reconstrucción y alisados en Kora Hair.">
   <title>Kora Hair | Servicios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <div class="topbar">Envíos gratis desde $85.000 <span class="dot">•</span> Tu primer diagnóstico capilar es sin cargo</div>
 
-  <!-- Navegación principal -->
-  <header class="sticky-top bg-white border-bottom">
-    <nav class="navbar navbar-expand-lg container py-3" aria-label="Navegación principal">
-      <a class="navbar-brand fs-2 tracking-wide" href="index.html">KORA</a>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg k-container" aria-label="Navegación principal">
+      <a class="brand" href="index.html" aria-label="Kora Hair, inicio">
+        <span class="brand__name">KORA</span>
+        <span class="brand__sub">HAIR · TU BRÚJULA CAPILAR</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="menuPrincipal">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+        <ul class="navbar-nav menu-principal">
           <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="sobre-mi.html">Sobre mí</a></li>
-          <li class="nav-item"><a class="nav-link active fw-semibold" aria-current="page" href="servicios.html">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="servicios.html">Servicios</a></li>
           <li class="nav-item"><a class="nav-link" href="boutique.html">Boutique</a></li>
           <li class="nav-item"><a class="nav-link" href="test.html">Tu Brújula Capilar</a></li>
           <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
         </ul>
-        <div class="d-flex align-items-center gap-3">
-          <a href="carrito.html" class="text-decoration-none text-dark fw-medium">Carrito</a>
-          <a href="turnos.html" class="btn btn-kora">Agendar Turno</a>
+        <div class="acciones">
+          <a href="login.html" class="icono-btn" aria-label="Mi cuenta"><i class="bi bi-person"></i></a>
+          <a href="carrito.html" class="icono-btn" aria-label="Carrito"><i class="bi bi-bag"></i><span class="badge-k" data-carrito-badge>1</span></a>
+          <a href="turnos.html" class="btn-kora btn-kora--sm">Agendar turno <i class="bi bi-arrow-right"></i></a>
         </div>
       </div>
     </nav>
   </header>
 
-  <!-- Contenido de Servicios -->
-  <main class="container py-5">
-    <div class="text-center mb-5">
-      <p class="text-uppercase small fw-semibold text-muted mb-2">Diagnóstico y Cuidado</p>
-      <h1 class="display-4">Tipos de <span class="text-kora-accent">Servicios</span></h1>
-      <p class="lead text-muted">Cada tratamiento está formulado específicamente para las necesidades de tu cuero cabelludo.</p>
-    </div>
+  <main>
+    <section class="hero-centro">
+      <div class="k-container">
+        <span class="eyebrow eyebrow--centro">Servicios Kora</span>
+        <h1 class="h-xl" style="font-size:clamp(2.4rem,5vw,4rem)">Tu cabello tiene un norte.<br><em>Vamos a encontrarlo.</em></h1>
+        <p class="lead-k">Cada servicio comienza con un diagnóstico personalizado y termina con una guía clara para sostener los resultados en casa.</p>
+      </div>
+    </section>
 
-    <div class="row g-4 align-items-center mb-5">
-      <div class="col-lg-6">
-        <img src="img/tratamientos.jpeg" alt="Tipos de servicios capilares en Kora Hair" class="img-fluid rounded-4 shadow">
+    <section class="k-section" style="padding-bottom:3rem">
+      <div class="k-container">
+        <div class="lista-servicios">
+        <a href="detalle-servicios.html" class="servicio-fila">
+          <img class="servicio-fila__num servicio-fila__img" src="img/nutricion.jpg" alt="Cabello oscuro antes y después de un tratamiento de nutrición" loading="lazy">
+          <div class="servicio-fila__info"><small>Ritual Kora · 60–75 min</small><h3>Nutrición</h3><p>Devolvemos lípidos y flexibilidad al cabello seco. Seleccionamos activos y técnica según tu diagnóstico.</p></div>
+          <span class="servicio-fila__precio">$38.000</span>
+          <span class="servicio-fila__flecha"><i class="bi bi-arrow-right"></i></span>
+        </a>
+        <a href="detalle-servicios.html" class="servicio-fila">
+          <img class="servicio-fila__num servicio-fila__img" src="img/hidratacion.jpg" alt="Cabello castaño antes y después de un tratamiento de hidratación" loading="lazy">
+          <div class="servicio-fila__info"><small>Ritual Kora · 45–60 min</small><h3>Hidratación</h3><p>Recuperamos agua, suavidad y movimiento natural. Seleccionamos activos y técnica según tu diagnóstico.</p></div>
+          <span class="servicio-fila__precio">$32.000</span>
+          <span class="servicio-fila__flecha"><i class="bi bi-arrow-right"></i></span>
+        </a>
+        <a href="detalle-servicios.html" class="servicio-fila">
+          <img class="servicio-fila__num servicio-fila__img" src="img/reconstruccion.jpg" alt="Cabello rubio dañado antes y después de una reconstrucción" loading="lazy">
+          <div class="servicio-fila__info"><small>Ritual Kora · 75–90 min</small><h3>Reconstrucción</h3><p>Fortalecemos la fibra dañada desde el interior. Seleccionamos activos y técnica según tu diagnóstico.</p></div>
+          <span class="servicio-fila__precio">$46.000</span>
+          <span class="servicio-fila__flecha"><i class="bi bi-arrow-right"></i></span>
+        </a>
+        <a href="detalle-servicios.html" class="servicio-fila">
+          <img class="servicio-fila__num servicio-fila__img" src="img/alisados.jpg" alt="Alisado de cabello castaño con plancha en el salón" loading="lazy">
+          <div class="servicio-fila__info"><small>Ritual Kora · 150–210 min</small><h3>Alisados</h3><p>Control y brillo con fórmulas de alto rendimiento. Seleccionamos activos y técnica según tu diagnóstico.</p></div>
+          <span class="servicio-fila__precio">Desde $70.000</span>
+          <span class="servicio-fila__flecha"><i class="bi bi-arrow-right"></i></span>
+        </a>
+        </div>
       </div>
-      <div class="col-lg-6">
-        <h2 class="mb-3">Rituales de Estética Capilar</h2>
-        <p class="text-muted mb-4">
-          Trabajamos con protocolos de tricología y bioseguridad para evaluar la salud de tu fibra capilar, ofreciendo nutrición profunda, detoxificación y restauración guiada.
-        </p>
-        <ul class="list-unstyled mb-4">
-          <li class="mb-2">✓ Diagnóstico capilar con escáner y lectura de cuero cabelludo.</li>
-          <li class="mb-2">✓ Terapias de hidratación y nutrición intensiva.</li>
-          <li class="mb-2">✓ Corte terapéutico y mantenimiento de hebras.</li>
-        </ul>
-        <a href="turnos.html" class="btn btn-kora">Reservar mi diagnóstico</a>
+    </section>
+
+    <section style="padding-bottom:5rem">
+      <div class="k-container" style="max-width:940px">
+        <div class="banner-rosa">
+          <div>
+            <small>No sabés cuál elegir</small>
+            <h2>Dejá que tu cabello<br>nos dé la respuesta.</h2>
+          </div>
+          <a href="test.html" class="btn-kora-blanco btn-kora">Hacer diagnóstico <i class="bi bi-arrow-right"></i></a>
+        </div>
       </div>
-    </div>
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-kora-dark text-white border-top border-secondary py-4 mt-5">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-      <span class="fs-4 fw-bold" style="font-family: 'Cormorant Garamond', serif;">KORA</span>
-      <p class="mb-0 small opacity-75">&copy; 2026 Kora Hair - Tu Brújula Capilar. Todos los derechos reservados.</p>
+  <footer class="site-footer">
+    <div class="k-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html"><span class="brand__name">KORA</span><span class="brand__sub">HAIR · TU BRÚJULA CAPILAR</span></a>
+          <p class="footer-lema">Cuidamos tu cabello.<br>Acompañamos tu historia.</p>
+        </div>
+        <div>
+          <h4 class="footer-titulo">Explorar</h4>
+          <ul class="footer-links">
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="boutique.html">Boutique</a></li>
+            <li><a href="test.html">Test capilar</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-titulo">Ayuda</h4>
+          <ul class="footer-links">
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="turnos.html">Agendar turno</a></li>
+            <li><a href="login.html">Mi cuenta</a></li>
+          </ul>
+        </div>
+        <div class="footer-news">
+          <h4 class="footer-titulo">Carta de Kora</h4>
+          <h4>Consejos que sí le sirven<br>a tu cabello.</h4>
+          <form class="news-form" data-form-demo>
+            <input type="email" placeholder="Tu correo electrónico" aria-label="Tu correo electrónico" required>
+            <button type="submit" aria-label="Suscribirme"><i class="bi bi-arrow-right"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Kora Hair. Todos los derechos reservados.</span>
+        <span>Salta, Argentina</span>
+      </div>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
