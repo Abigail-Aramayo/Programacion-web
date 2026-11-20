@@ -1,0 +1,12 @@
+# Variables de entorno (datos privados: NO subir a GitHub)
+.env
+.env.local
+
+# Archivos del sistema y del editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Dependencias y registros
+vendor/
+*.log

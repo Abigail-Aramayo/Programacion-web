@@ -1,0 +1,5 @@
+# Impide que alguien pueda abrir el archivo .env desde el navegador
+# (por ejemplo http://localhost/tu-proyecto/.env)
+<Files ".env">
+    Require all denied
+</Files>
