@@ -209,3 +209,63 @@ Las funciones propias están en [`clase5/includes/formularios.php`](./clase5/inc
 
 **6. Buscador: validación de búsqueda inválida**
 ![Error del buscador](clase5/docs/capturas/06-buscador-error.png)
+
+
+## TRABAJO PRÁCTICO Nº 6 – Bases de Datos: Normalización y SQL
+
+Diseño de la base de datos de **Kora Hair** (turnos y boutique), aplicando normalización y comandos SQL (DDL y CRUD) en MySQL.
+
+### Archivos
+| Archivo | Contenido |
+|---|---|
+| `tp6/NORMALIZACION.md` | Tabla sin normalizar, proceso 1FN → 2FN → 3FN y listado final de tablas |
+| `tp6/schema.sql` | DDL: creación de la base, las 11 tablas, claves, relaciones e índices |
+| `tp6/consultas.sql` | DML: CRUD completo (INSERT, SELECT, UPDATE, DELETE) |
+
+### 1. Normalización
+Se partió de una tabla de pedidos con campos multivalorados (productos, cantidades y precios en una sola celda) y se normalizó:
+- **1FN:** un valor por celda, una fila por producto del pedido.
+- **2FN:** se eliminan dependencias parciales → `pedidos`, `productos`, `detalle_pedidos`.
+- **3FN:** se eliminan dependencias transitivas → `categorias`, `usuarios`, `roles`, `estados_pedido`.
+
+Resultado: **11 tablas** — `roles`, `usuarios`, `categorias`, `productos`, `servicios`, `estados_turno`, `turnos`, `estados_pedido`, `pedidos`, `detalle_pedidos` y `consultas`.
+
+Relaciones principales:
+- 1:N: categoría → productos, usuario → turnos, usuario → pedidos, rol → usuarios.
+- N:M: pedidos ↔ productos, resuelta con la tabla intermedia `detalle_pedidos`.
+
+![Diagrama de relaciones](docs/capturas/tp6-01-diagrama.png)
+
+### 2. Creación de la base (DDL)
+`schema.sql` crea la base `kora_hair` (utf8mb4) y las tablas con clave primaria autoincremental, claves foráneas, restricciones `NOT NULL` y `UNIQUE`, campos `created_at` / `updated_at` e índices.
+
+![Creación de tablas](docs/capturas/tp6-02-creacion.png)
+
+### 3. CRUD (DML)
+**Create (INSERT):** carga de roles, categorías, estados, usuarios, productos, turnos, un pedido con su detalle y una consulta de prueba. Las contraseñas se guardan como hash.
+
+![Datos cargados](docs/capturas/tp6-03-insert.png)
+
+**Read (SELECT):**
+1. `WHERE` + `ORDER BY`: productos de más de $12.000, del más caro al más barato.
+2. `INNER JOIN`: productos con su categoría.
+3. `INNER JOIN` de 4 tablas: turnos con cliente, servicio y estado.
+4. Detalle de un pedido (relación N:M) con subtotal.
+
+![Consulta 1](docs/capturas/tp6-04-select-where.png)
+![Consulta 2](docs/capturas/tp6-05-join-productos.png)
+![Consulta 3](docs/capturas/tp6-06-join-turnos.png)
+![Consulta 4](docs/capturas/tp6-07-detalle-pedido.png)
+
+**Update:** cambio de precio de un producto y confirmación de un turno, siempre con `WHERE`.
+
+![Update comprobado](docs/capturas/tp6-08-update.png)
+
+**Delete:** baja de una consulta de prueba con `WHERE`; la comprobación devuelve 0 filas.
+
+![Delete comprobado](docs/capturas/tp6-09-delete.png)
+
+### Cómo reproducirlo
+1. Iniciar Apache y MySQL en XAMPP y abrir `http://localhost/phpmyadmin`.
+2. Pestaña **SQL**: ejecutar `tp6/schema.sql`.
+3. Ejecutar `tp6/consultas.sql` por bloques (C, R, U, D).
