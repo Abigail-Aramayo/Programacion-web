@@ -6,6 +6,8 @@ $ruta_base          = '../';
 $titulo_pagina      = 'Consultas recibidas';
 $menu_activo        = 'contacto.php';
 
+$rol_requerido      = 'admin';   // TP8: solo administradores
+require_once __DIR__ . '/../includes/auth_guard.php';
 require_once __DIR__ . '/../config/conexion.php';
 
 $consultas = $pdo->query('SELECT id, nombre, apellido, email, motivo, mensaje, created_at FROM consultas ORDER BY id DESC')->fetchAll();

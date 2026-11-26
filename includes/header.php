@@ -12,6 +12,8 @@
  *   $menu_activo        -> (opcional) archivo del menú a resaltar
  */
 require_once __DIR__ . '/../config/env.php';
+require_once __DIR__ . '/../config/sesion.php';   // TP8: sesiones
+iniciar_sesion();
 
 // $ruta_base: prefijo para los links. Vacío en la raíz; '../' en /admin.
 $ruta_base          = $ruta_base          ?? '';

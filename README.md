@@ -334,3 +334,46 @@ La tabla que se manipula es `productos` del modelo del TP6 (relacionada con `cat
 
 **5. Los datos reflejados en phpMyAdmin**
 ![phpMyAdmin](docs/capturas/tp7-05-phpmyadmin.png)
+
+## TRABAJO PRÁCTICO Nº 8 – Manejo de Estado, Sesiones y Autenticación
+
+Sistema de login para **Kora Hair**: registro, inicio y cierre de sesión, páginas protegidas y control de acceso por rol.
+
+### Archivos
+| Archivo | Función |
+|---|---|
+| `config/sesion.php` | `iniciar_sesion()` (cookie httponly/samesite, modo estricto) y token CSRF |
+| `includes/auth_guard.php` | Guardián de rutas: sin sesión → login; rol incorrecto → panel |
+| `registro.php` | Alta de usuario: sanitiza, valida, email único, `password_hash()` |
+| `login.php` | `password_verify()`, `session_regenerate_id(true)`, datos en `$_SESSION` |
+| `logout.php` | Vacía `$_SESSION`, borra la cookie y hace `session_destroy()` |
+| `panel.php` | Página protegida para cualquier usuario logueado |
+| `admin_panel.php` | Página protegida solo para el rol `admin` |
+| `admin/*.php` | El CRUD del TP7 ahora exige rol `admin` |
+| `database/tp8_ajustes.sql` | Ajustes de BD (rol `usuario`, apellido opcional) |
+
+### Seguridad aplicada
+- Contraseñas con **bcrypt** (`password_hash`), nunca en texto plano.
+- **Consultas preparadas** (PDO) en login y registro.
+- Mensaje genérico en el login ("Correo o contraseña incorrectos") para no revelar qué correos existen.
+- **Regeneración del ID de sesión** al loguearse (anti fijación de sesión).
+- Cookie de sesión `httponly` + `samesite=Lax` (+ `secure` si hay HTTPS).
+- **Token CSRF** en los formularios de login y registro.
+- Salida escapada con `htmlspecialchars` (helper `e()`).
+- Verificación de **rol** en el servidor, no solo ocultando links.
+
+### Cómo probar
+1. Importar `database/schema.sql` y `database/consultas.sql`, y luego `database/tp8_ajustes.sql`.
+2. Admin de prueba: `admin@korahair.test` · contraseña `Kora1234!`
+3. Usuario común: `abigail@correo.test` · contraseña `Kora1234!` (o registrarse en `registro.php`).
+4. Sin sesión, abrir `panel.php` o `admin/index.php` → redirige a `login.php`.
+5. Con usuario común, abrir `admin_panel.php` → redirige a `panel.php` con aviso de permisos.
+### Capturas
+![Login](docs/capturas/tp8-01-login.png)
+![Registro con errores](docs/capturas/tp8-02-registro-errores.png)
+![Panel de usuario](docs/capturas/tp8-03-panel.png)
+![Panel de administración](docs/capturas/tp8-04-admin-panel.png)
+![Acceso denegado](docs/capturas/tp8-05-acceso-denegado.png)
+![Usuarios en phpMyAdmin](docs/capturas/tp8-06-usuarios-phpmyadmin.png)
+![Login con error](docs/capturas/tp8-08-login-error.png)
+![Registro exitoso](docs/capturas/tp8-09-registro-ok.png)

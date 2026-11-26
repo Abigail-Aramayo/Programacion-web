@@ -7,6 +7,8 @@ $ruta_base          = '../';
 $titulo_pagina      = 'Editar producto';
 $menu_activo        = 'boutique.php';
 
+$rol_requerido      = 'admin';   // TP8: solo administradores
+require_once __DIR__ . '/../includes/auth_guard.php';
 require_once __DIR__ . '/../config/conexion.php';
 require_once __DIR__ . '/_validar.php';
 

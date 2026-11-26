@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS roles;
 
 -- 2) Tablas maestras -----------------------------------------
 
--- Roles de usuario (admin, cliente...)
+-- Roles de usuario (admin, usuario...)
 CREATE TABLE roles (
   id          INT AUTO_INCREMENT PRIMARY KEY,
   nombre      VARCHAR(30)  NOT NULL UNIQUE,
@@ -57,8 +57,8 @@ CREATE TABLE estados_pedido (
 CREATE TABLE usuarios (
   id         INT AUTO_INCREMENT PRIMARY KEY,
   rol_id     INT          NOT NULL,
-  nombre     VARCHAR(50)  NOT NULL,
-  apellido   VARCHAR(50)  NOT NULL,
+  nombre     VARCHAR(100) NOT NULL,
+  apellido   VARCHAR(50)  NULL,
   email      VARCHAR(120) NOT NULL UNIQUE,      -- se usa para el login
   password   VARCHAR(255) NOT NULL,             -- hash (password_hash), nunca texto plano
   telefono   VARCHAR(25)  NULL,
