@@ -11,24 +11,25 @@
     <div class="k-container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a class="brand" href="index.php"><span class="brand__name">KORA</span><span class="brand__sub">HAIR · TU BRÚJULA CAPILAR</span></a>
+          <a class="brand" href="<?= $ruta_base ?>index.php"><span class="brand__name">KORA</span><span class="brand__sub">HAIR · TU BRÚJULA CAPILAR</span></a>
           <p class="footer-lema">Cuidamos tu cabello.<br>Acompañamos tu historia.</p>
           <a class="footer-mail" href="mailto:<?= e(APP_EMAIL) ?>"><?= e(APP_EMAIL) ?></a>
         </div>
         <div>
           <h4 class="footer-titulo">Explorar</h4>
           <ul class="footer-links">
-            <li><a href="servicios.php">Servicios</a></li>
-            <li><a href="boutique.php">Boutique</a></li>
-            <li><a href="test.php">Test capilar</a></li>
+            <li><a href="<?= $ruta_base ?>servicios.php">Servicios</a></li>
+            <li><a href="<?= $ruta_base ?>boutique.php">Boutique</a></li>
+            <li><a href="<?= $ruta_base ?>test.php">Test capilar</a></li>
           </ul>
         </div>
         <div>
           <h4 class="footer-titulo">Ayuda</h4>
           <ul class="footer-links">
-            <li><a href="contacto.php">Contacto</a></li>
-            <li><a href="turnos.php">Agendar turno</a></li>
-            <li><a href="login.php">Mi cuenta</a></li>
+            <li><a href="<?= $ruta_base ?>contacto.php">Contacto</a></li>
+            <li><a href="<?= $ruta_base ?>turnos.php">Agendar turno</a></li>
+            <li><a href="<?= $ruta_base ?>login.php">Mi cuenta</a></li>
+            <li><a href="<?= $ruta_base ?>admin/index.php">Administración</a></li>
           </ul>
         </div>
         <div class="footer-news">
@@ -48,6 +49,6 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="<?= $ruta_base ?>js/main.js"></script>
 </body>
 </html>

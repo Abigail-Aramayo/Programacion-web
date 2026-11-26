@@ -16,7 +16,7 @@ $pagina_actual = $menu_activo ?? basename($_SERVER['SCRIPT_NAME']);
 
   <header class="site-header">
     <nav class="navbar navbar-expand-lg k-container" aria-label="Navegación principal">
-      <a class="brand" href="index.php" aria-label="<?= e(APP_NAME) ?>, inicio">
+      <a class="brand" href="<?= $ruta_base ?>index.php" aria-label="<?= e(APP_NAME) ?>, inicio">
         <span class="brand__name">KORA</span>
         <span class="brand__sub">HAIR · TU BRÚJULA CAPILAR</span>
       </a>
@@ -28,14 +28,14 @@ $pagina_actual = $menu_activo ?? basename($_SERVER['SCRIPT_NAME']);
           <?php foreach ($menu as $archivo => $texto): ?>
             <?php $activo = ($archivo === $pagina_actual); ?>
           <li class="nav-item">
-            <a class="nav-link<?= $activo ? ' active' : '' ?>" href="<?= $archivo ?>"<?= $activo ? ' aria-current="page"' : '' ?>><?= $texto ?></a>
+            <a class="nav-link<?= $activo ? ' active' : '' ?>" href="<?= $ruta_base . $archivo ?>"<?= $activo ? ' aria-current="page"' : '' ?>><?= $texto ?></a>
           </li>
           <?php endforeach; ?>
         </ul>
         <div class="acciones">
-          <a href="login.php" class="icono-btn" aria-label="Mi cuenta"><i class="bi bi-person"></i></a>
-          <a href="carrito.php" class="icono-btn" aria-label="Carrito"><i class="bi bi-bag"></i><span class="badge-k" data-carrito-badge>1</span></a>
-          <a href="turnos.php" class="btn-kora btn-kora--sm">Agendar turno <i class="bi bi-arrow-right"></i></a>
+          <a href="<?= $ruta_base ?>login.php" class="icono-btn" aria-label="Mi cuenta"><i class="bi bi-person"></i></a>
+          <a href="<?= $ruta_base ?>carrito.php" class="icono-btn" aria-label="Carrito"><i class="bi bi-bag"></i><span class="badge-k" data-carrito-badge>1</span></a>
+          <a href="<?= $ruta_base ?>turnos.php" class="btn-kora btn-kora--sm">Agendar turno <i class="bi bi-arrow-right"></i></a>
         </div>
       </div>
     </nav>

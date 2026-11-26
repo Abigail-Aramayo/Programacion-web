@@ -48,6 +48,13 @@ define('APP_NAME',  $env['APP_NAME']  ?? 'Kora Hair');
 define('APP_EMAIL', $env['APP_EMAIL'] ?? 'contacto@ejemplo.com');
 define('APP_ENV',   $env['APP_ENV']   ?? 'local');
 
+// Datos de conexión a MySQL (TP7). Valores por defecto de XAMPP.
+define('DB_HOST',    $env['DB_HOST']    ?? 'localhost');
+define('DB_NAME',    $env['DB_NAME']    ?? 'kora_hair');
+define('DB_USER',    $env['DB_USER']    ?? 'root');
+define('DB_PASS',    $env['DB_PASS']    ?? '');
+define('DB_CHARSET', $env['DB_CHARSET'] ?? 'utf8mb4');
+
 // En entorno local se muestran los errores; en producción, no.
 ini_set('display_errors', APP_ENV === 'local' ? '1' : '0');
 error_reporting(E_ALL);

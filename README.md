@@ -124,7 +124,7 @@ Programacion-web/
 
 # CLASE 5 – Procesamiento de Formularios y Seguridad Web
 
-**Unidad 4 – Programación del Lado Servidor (PHP)** · Programación Web · Profesor: Lic. Gabriel Artaza
+**Unidad 4 – Programación del Lado Servidor (PHP)** 
 
 ## 1. Objetivo
 
@@ -269,3 +269,68 @@ Relaciones principales:
 1. Iniciar Apache y MySQL en XAMPP y abrir `http://localhost/phpmyadmin`.
 2. Pestaña **SQL**: ejecutar `tp6/schema.sql`.
 3. Ejecutar `tp6/consultas.sql` por bloques (C, R, U, D).
+
+---
+
+# TP7 – Persistencia y Conexión PHP-MySQL Segura
+
+**Unidad 4 – Programación del Lado Servidor (PHP)** 
+
+## 1. Objetivo
+
+Se conectó el sitio **Kora Hair** con la base de datos MySQL diseñada en el TP6 (`kora_hair`) usando **PDO**, y se construyó un módulo **CRUD de productos** de la boutique integrado al diseño del sitio, con **consultas preparadas** (anti SQL Injection) y **protección XSS** (`htmlspecialchars`).
+
+## 2. Módulo de administración (CRUD de productos)
+
+| Operación | Archivo | Qué hace |
+|---|---|---|
+| **Read** (leer) | [`admin/index.php`](./admin/index.php) | Lista los productos con su categoría (INNER JOIN) |
+| **Create** (crear) | [`admin/crear.php`](./admin/crear.php) | Formulario + `INSERT` preparado |
+| **Update** (editar) | [`admin/editar.php`](./admin/editar.php) | Carga el producto + `UPDATE` preparado |
+| **Delete** (eliminar) | [`admin/eliminar.php`](./admin/eliminar.php) | `DELETE` preparado (solo por POST y con confirmación) |
+| Lectura de consultas | [`admin/consultas.php`](./admin/consultas.php) | Muestra los mensajes enviados desde el formulario de contacto |
+
+Además, el formulario de **contacto** (`contacto.php`) ahora guarda cada mensaje en la tabla `consultas`: el flujo completo va desde el formulario de la interfaz hasta la base de datos.
+
+La tabla que se manipula es `productos` del modelo del TP6 (relacionada con `categorias` por `categoria_id`).
+
+## 3. Conexión segura
+
+[`config/conexion.php`](./config/conexion.php) crea el objeto PDO con:
+- `try/catch (PDOException)` para que un fallo de conexión no muestre claves ni rutas internas.
+- `PDO::ERRMODE_EXCEPTION` (los errores lanzan excepciones), `FETCH_ASSOC` y `EMULATE_PREPARES = false` (consultas preparadas reales).
+- Los datos de conexión (`DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS`) se leen del archivo `.env`, que no se sube a GitHub.
+
+## 4. Seguridad aplicada
+
+| Amenaza | Medida |
+|---|---|
+| Inyección SQL | **Consultas preparadas** con `:parametros` en todos los INSERT, UPDATE, SELECT y DELETE que reciben datos del usuario |
+| XSS | `htmlspecialchars()` (función `e()`) en todo lo que se imprime + `strip_tags()` al recibir el texto |
+| Datos inválidos | Validación en servidor: `filter_var` para id, precio y stock; la categoría debe existir en la base |
+| Borrado accidental | El borrado se envía por **POST** con confirmación (un link GET podría ejecutarse sin querer) |
+| Integridad | Si un producto figura en pedidos (clave foránea), se avisa que no se puede eliminar en lugar de mostrar un error |
+
+## 5. Cómo ejecutarlo
+
+1. Iniciar **Apache** y **MySQL** en XAMPP.
+2. En `http://localhost/phpmyadmin` → pestaña **SQL**: ejecutar [`database/schema.sql`](./database/schema.sql) y después [`database/consultas.sql`](./database/consultas.sql) (cargan la estructura y los datos de prueba).
+3. Copiar `.env.example` como `.env` (en XAMPP: usuario `root`, contraseña vacía).
+4. Abrir `http://localhost/Programacion-web/admin/index.php`.
+
+## 6. Capturas de pantalla
+
+**1. Listado de productos (Read)**
+![Listado](docs/capturas/tp7-01-listado.png)
+
+**2. Alta de un producto (Create)**
+![Alta](docs/capturas/tp7-02-alta.png)
+
+**3. Edición de un producto (Update)**
+![Edición](docs/capturas/tp7-03-edicion.png)
+
+**4. Baja de un producto (Delete)**
+![Baja](docs/capturas/tp7-04-baja.png)
+
+**5. Los datos reflejados en phpMyAdmin**
+![phpMyAdmin](docs/capturas/tp7-05-phpmyadmin.png)
