@@ -11,7 +11,7 @@ USE kora_hair;
 -- Tablas maestras
 INSERT INTO roles (nombre, descripcion) VALUES
   ('admin',   'Administra el sitio, productos y turnos'),
-  ('cliente', 'Usuario que compra y reserva turnos');
+  ('usuario', 'Usuario que compra y reserva turnos');
 
 INSERT INTO categorias (nombre, descripcion) VALUES
   ('Tratamiento', 'Reparadores y tratamientos intensivos'),
@@ -26,8 +26,8 @@ INSERT INTO estados_pedido (nombre) VALUES
 
 -- Usuarios (la contraseña de ejemplo es Kora1234! guardada como hash)
 INSERT INTO usuarios (rol_id, nombre, apellido, email, password, telefono) VALUES
-  (1, 'Admin',   'Kora',   'admin@korahair.test',   '$2y$10$P1/zrv6tWj/L2FGDM.3j/uwM.NMrPp83LpWON8Sn4wUNS4I3SDxvG', '3870000000'),
-  (2, 'Abigail', 'Aramayo','abigail@correo.test',   '$2y$10$P1/zrv6tWj/L2FGDM.3j/uwM.NMrPp83LpWON8Sn4wUNS4I3SDxvG', '3871111111');
+  (1, 'Admin Kora', NULL,   'admin@korahair.test',   '$2y$10$P1/zrv6tWj/L2FGDM.3j/uwM.NMrPp83LpWON8Sn4wUNS4I3SDxvG', '3870000000'),
+  (2, 'Abigail Aramayo', NULL,'abigail@correo.test',   '$2y$10$P1/zrv6tWj/L2FGDM.3j/uwM.NMrPp83LpWON8Sn4wUNS4I3SDxvG', '3871111111');
 
 INSERT INTO servicios (nombre, descripcion, duracion_min, precio) VALUES
   ('Nutrición',      'Devolvemos lípidos y flexibilidad al cabello seco.',    75, 38000.00),
@@ -75,7 +75,7 @@ ORDER BY c.nombre, p.nombre;
 
 -- 3) INNER JOIN de 4 tablas: agenda de turnos con cliente, servicio y estado
 SELECT t.id, t.fecha_hora,
-       CONCAT(u.nombre, ' ', u.apellido) AS cliente,
+       u.nombre AS cliente,
        s.nombre AS servicio,
        e.nombre AS estado
 FROM turnos t

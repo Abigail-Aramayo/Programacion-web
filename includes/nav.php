@@ -33,7 +33,12 @@ $pagina_actual = $menu_activo ?? basename($_SERVER['SCRIPT_NAME']);
           <?php endforeach; ?>
         </ul>
         <div class="acciones">
-          <a href="<?= $ruta_base ?>login.php" class="icono-btn" aria-label="Mi cuenta"><i class="bi bi-person"></i></a>
+          <?php if (isset($_SESSION['usuario_id'])): ?>
+          <a href="<?= $ruta_base ?><?= ($_SESSION['rol'] ?? '') === 'admin' ? 'admin_panel.php' : 'panel.php' ?>" class="nav-sesion">Hola, <?= e(explode(' ', $_SESSION['usuario_nombre'] ?? '')[0]) ?></a>
+          <a href="<?= $ruta_base ?>logout.php" class="icono-btn" aria-label="Cerrar sesión" title="Cerrar sesión"><i class="bi bi-box-arrow-right"></i></a>
+          <?php else: ?>
+          <a href="<?= $ruta_base ?>login.php" class="icono-btn" aria-label="Iniciar sesión"><i class="bi bi-person"></i></a>
+          <?php endif; ?>
           <a href="<?= $ruta_base ?>carrito.php" class="icono-btn" aria-label="Carrito"><i class="bi bi-bag"></i><span class="badge-k" data-carrito-badge>1</span></a>
           <a href="<?= $ruta_base ?>turnos.php" class="btn-kora btn-kora--sm">Agendar turno <i class="bi bi-arrow-right"></i></a>
         </div>

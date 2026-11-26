@@ -3,6 +3,9 @@
  * admin/eliminar.php  -  DELETE (baja de producto)
  * Solo acepta POST. No muestra HTML: ejecuta el DELETE y redirige.
  */
+$ruta_base     = '../';
+$rol_requerido = 'admin';   // TP8: solo administradores
+require_once __DIR__ . '/../includes/auth_guard.php';
 require_once __DIR__ . '/../config/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

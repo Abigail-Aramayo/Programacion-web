@@ -8,6 +8,8 @@ $titulo_pagina      = 'Administración de productos';
 $descripcion_pagina = 'Gestión de productos de la boutique.';
 $menu_activo        = 'boutique.php';
 
+$rol_requerido      = 'admin';   // TP8: solo administradores
+require_once __DIR__ . '/../includes/auth_guard.php';
 require_once __DIR__ . '/../config/conexion.php';
 
 // Mensajes que llegan por la URL (?status=...). Solo se aceptan estos valores.
