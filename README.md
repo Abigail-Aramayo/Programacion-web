@@ -369,11 +369,35 @@ Sistema de login para **Kora Hair**: registro, inicio y cierre de sesión, pági
 4. Sin sesión, abrir `panel.php` o `admin/index.php` → redirige a `login.php`.
 5. Con usuario común, abrir `admin_panel.php` → redirige a `panel.php` con aviso de permisos.
 ### Capturas
-![Login](docs/capturas/tp8-01-login.png)
+
+**1. Cierre de sesión (`logout.php`)**
+Al cerrar sesión se destruye la sesión en el servidor, se borra la cookie y se redirige al login con un aviso.
+![Login tras cerrar sesión](docs/capturas/tp8-01-login.png)
+
+**2. Registro con validación (`registro.php`)**
+El servidor valida los datos y muestra los errores sin perder lo escrito. Acá, una contraseña de menos de 8 caracteres.
 ![Registro con errores](docs/capturas/tp8-02-registro-errores.png)
+
+**3. Panel del usuario (`panel.php`)**
+Página protegida: solo se ve con sesión iniciada. Muestra el nombre, el correo y el rol `usuario`.
 ![Panel de usuario](docs/capturas/tp8-03-panel.png)
+
+**4. Panel de administración (`admin_panel.php`)**
+Solo accesible con el rol `admin`. Muestra el resumen del sitio y los accesos al CRUD del TP7.
 ![Panel de administración](docs/capturas/tp8-04-admin-panel.png)
+
+**5. Acceso denegado (guardián de rutas)**
+Al abrir una página protegida sin sesión, `auth_guard.php` redirige al login con un aviso.
 ![Acceso denegado](docs/capturas/tp8-05-acceso-denegado.png)
+
+**6. Contraseñas encriptadas en la base de datos**
+La columna `password` guarda el hash bcrypt (`$2y$10$...`), nunca la contraseña en texto plano. Cada usuario tiene un hash distinto.
 ![Usuarios en phpMyAdmin](docs/capturas/tp8-06-usuarios-phpmyadmin.png)
+
+**7. Error de login genérico**
+Si falla el correo o la contraseña, el mensaje es el mismo, para no revelar qué correos están registrados.
 ![Login con error](docs/capturas/tp8-08-login-error.png)
+
+**8. Registro exitoso**
+Tras crear la cuenta se redirige al login con la confirmación.
 ![Registro exitoso](docs/capturas/tp8-09-registro-ok.png)
