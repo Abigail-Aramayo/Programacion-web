@@ -1,0 +1,40 @@
+/* Estilos del módulo Catálogo (TP10 · Parte B). Mismos colores que el sitio Kora Hair. */
+:root { --negro:#161314; --rosa:#E91E78; --crema:#F7F5F1; --linea:#E5DDD3; --suave:#6b6460; }
+* { box-sizing: border-box; }
+body { margin:0; font-family:'DM Sans',sans-serif; background:var(--crema); color:var(--negro); }
+a { color:inherit; }
+.cabecera { display:flex; justify-content:space-between; align-items:center; padding:1.2rem 2rem; background:#fff; border-bottom:1px solid var(--linea); }
+.marca { text-decoration:none; display:flex; flex-direction:column; }
+.marca span { font-family:'Playfair Display',serif; font-size:1.6rem; letter-spacing:.3em; }
+.marca small { font-size:.55rem; letter-spacing:.14em; font-weight:700; }
+.cabecera nav { display:flex; gap:1.6rem; font-size:.8rem; }
+.contenedor { max-width:70rem; margin:0 auto; padding:3rem 1.5rem 4rem; }
+.eyebrow { color:var(--rosa); font-size:.65rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+h1 { font-family:'Playfair Display',serif; font-weight:400; font-size:2.6rem; margin:.4rem 0 1.5rem; }
+h1 em { color:var(--rosa); }
+.resumen { display:grid; grid-template-columns:repeat(auto-fit,minmax(10rem,1fr)); gap:1rem; margin-bottom:2rem; max-width:40rem; }
+.resumen div { background:#fff; border:1px solid var(--linea); padding:1rem 1.2rem; display:flex; flex-direction:column; gap:.2rem; }
+.resumen strong { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:400; }
+.resumen span { font-size:.65rem; text-transform:uppercase; letter-spacing:.08em; color:var(--suave); }
+.filtros { display:flex; flex-wrap:wrap; gap:.6rem; margin-bottom:1.8rem; }
+.chip { background:#fff; border:1px solid var(--linea); padding:.55rem 1rem; font-size:.7rem; text-decoration:none; }
+.chip:hover { border-color:var(--negro); }
+.chip.activo { background:var(--negro); color:#fff; border-color:var(--negro); }
+.grilla { display:grid; grid-template-columns:repeat(auto-fill,minmax(15rem,1fr)); gap:1.6rem; }
+.tarjeta__img { display:block; aspect-ratio:1/1; background:#efe6e3; overflow:hidden; margin-bottom:1rem; }
+.tarjeta__img img { width:100%; height:100%; object-fit:cover; display:block; }
+.tarjeta__cat { font-size:.6rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--suave); }
+.tarjeta h2 { font-family:'Playfair Display',serif; font-weight:400; font-size:1.2rem; margin:.4rem 0; }
+.tarjeta h2 a { text-decoration:none; }
+.tarjeta h2 a:hover { color:var(--rosa); }
+.tarjeta p { font-size:.75rem; color:var(--suave); margin:.2rem 0 .8rem; }
+.precio { font-weight:700; font-size:.9rem; }
+.vacio { color:var(--suave); padding:2rem 0; }
+.volver { font-size:.75rem; text-decoration:none; color:var(--suave); }
+.detalle { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; margin-top:1.5rem; align-items:start; }
+.detalle__img { background:#efe6e3; aspect-ratio:1/1; }
+.detalle__img img { width:100%; height:100%; object-fit:cover; display:block; }
+.btn-json { display:inline-block; border:1px solid var(--negro); padding:.6rem 1rem; font-size:.7rem; font-weight:700; text-decoration:none; }
+.btn-json:hover { background:var(--negro); color:#fff; }
+.pie { text-align:center; font-size:.7rem; color:var(--suave); padding:2rem 1rem; border-top:1px solid var(--linea); }
+@media (max-width:700px) { .detalle { grid-template-columns:1fr; } .cabecera { padding:1rem; } }

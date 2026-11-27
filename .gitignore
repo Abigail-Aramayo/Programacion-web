@@ -10,3 +10,8 @@ Thumbs.db
 # Dependencias y registros
 vendor/
 *.log
+kora-framework/.env
+kora-framework/writable/logs/*
+kora-framework/writable/cache/*
+kora-framework/writable/session/*
+kora-framework/writable/debugbar/*
