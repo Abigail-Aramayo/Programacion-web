@@ -1,6 +1,7 @@
 <?php
 $titulo_pagina      = 'Boutique';
 $descripcion_pagina = 'La boutique Kora: productos seleccionados para cuidar tu cabello en casa.';
+$scripts_extra      = ['js/buscador.js'];   // TP9: búsqueda con Fetch API
 require_once __DIR__ . '/includes/header.php';
 ?>
   <main>
@@ -24,9 +25,14 @@ require_once __DIR__ . '/includes/header.php';
             <button class="chip" type="button" data-filtro="limpieza">Limpieza</button>
             <button class="chip" type="button" data-filtro="tratamiento">Tratamiento</button>
           </div>
-          <span class="filtros__total" id="totalProductos">3 productos</span>
+          <div class="filtros__buscar">
+            <label for="inputBusqueda">Buscar productos</label>
+            <input type="search" id="inputBusqueda" placeholder="Buscar productos…" maxlength="60" autocomplete="off">
+          </div>
+          <span class="filtros__total" id="totalProductos" aria-live="polite">3 productos</span>
         </div>
-        <div class="productos productos--3" id="gridProductos">
+        <!-- data-dinamico: lo completa js/buscador.js con datos JSON. Si JavaScript no funciona, queda este HTML. -->
+        <div class="productos productos--3" id="gridProductos" data-dinamico="1">
           <article class="producto" data-categoria="tratamiento">
             <a href="detalle-del-producto.php" class="producto__img producto__img--negro" aria-label="Ver Reparador de Puntas">
               <span class="producto__tag">Más vendido</span>

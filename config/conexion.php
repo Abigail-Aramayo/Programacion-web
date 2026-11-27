@@ -27,6 +27,11 @@ try {
 } catch (PDOException $e) {
     error_log('Error de conexión a la base de datos: ' . $e->getMessage());
     http_response_code(500);
+    // TP9: si la petición viene de un endpoint de la API se responde JSON, no HTML
+    if (defined('RESPUESTA_JSON') && RESPUESTA_JSON) {
+        header('Content-Type: application/json; charset=utf-8');
+        die(json_encode(['status' => 'error', 'message' => 'No hay conexión con la base de datos.'], JSON_UNESCAPED_UNICODE));
+    }
     $detalle = (APP_ENV === 'local')
         ? ' Detalle (solo visible en local): ' . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8')
         : '';
