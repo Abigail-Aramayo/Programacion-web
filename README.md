@@ -401,3 +401,75 @@ Si falla el correo o la contraseña, el mensaje es el mismo, para no revelar qu�
 **8. Registro exitoso**
 Tras crear la cuenta se redirige al login con la confirmación.
 ![Registro exitoso](docs/capturas/tp8-09-registro-ok.png)
+
+## TRABAJO PRÁCTICO Nº 9 – Comunicación Asincrónica y APIs (AJAX & JSON)
+
+**Unidad 5 – Interacción Avanzada y Frameworks** 
+
+### Objetivo
+Se agregó a la **boutique** de Kora Hair un buscador en vivo: al escribir o elegir una categoría, la página pide los productos al servidor con **Fetch API**, recibe **JSON** y actualiza solo la grilla, **sin recargar la página**.
+
+### Archivos
+| Archivo | Función |
+|---|---|
+| [`api/buscar_productos.php`](./api/buscar_productos.php) | Endpoint PHP: consulta con PDO y responde JSON con el código HTTP adecuado |
+| [`js/buscador.js`](./js/buscador.js) | Evento `input`, `fetch` con `async/await`, `try/catch` y manipulación del DOM |
+| [`boutique.php`](./boutique.php) | Campo de búsqueda y contenedor `#gridProductos` que se completa con los datos |
+| [`config/conexion.php`](./config/conexion.php) | Si la conexión falla desde la API, responde JSON (no HTML) |
+
+### 1. Backend: endpoint JSON
+- Cabecera `Content-Type: application/json; charset=utf-8`.
+- Consulta con **PDO y consultas preparadas** (`:q1`, `:q2`, `:cat`, `:id`); los comodines `%` y `_` del usuario se escapan.
+- Parámetros opcionales por GET: `q` (búsqueda), `categoria` (`nutricion`, `limpieza`, `tratamiento`) e `id`.
+- Respuesta con `json_encode()`: `{ "status": "success", "total": 1, "data": [ ... ] }`.
+
+| Código | Cuándo |
+|---|---|
+| **200 OK** | Consulta correcta (con resultados o lista vacía) |
+| **400 Bad Request** | Búsqueda de más de 60 caracteres, parámetro no válido o `id` no numérico |
+| **404 Not Found** | `id` inexistente o categoría que no existe |
+| **405 Method Not Allowed** | Se usó un método distinto de GET |
+| **500 Internal Server Error** | Falla de la base de datos (el detalle queda en el log, no se muestra) |
+
+### 2. Frontend: Fetch API
+- Se captura el evento `input` del buscador (con *debounce* de 300 ms para no pedir en cada tecla) y el `click` de los filtros por categoría.
+- Petición con `fetch()` y `async/await`; si la respuesta no es `ok` se lanza un error y se muestra un mensaje.
+- Un `AbortController` cancela la petición anterior si el usuario sigue escribiendo.
+- Errores de red o HTTP controlados con `try...catch`.
+
+### 3. Manipulación dinámica del DOM
+- Se procesa el JSON, se recorre con `.map()` y se construyen las tarjetas de producto.
+- Solo se reemplaza el contenido de `#gridProductos` y el contador de resultados; el resto de la página no se toca.
+- Las tarjetas se crean con `createElement` y `textContent` (no `innerHTML`), para evitar **XSS** si un dato trae HTML.
+- Si no hay resultados o hay un error, se muestra un mensaje en la misma sección.
+
+### Cómo probarlo
+1. Iniciar Apache y MySQL en XAMPP (la base `kora_hair` ya cargada).
+2. Abrir `http://localhost/Programacion-web/boutique.php` y escribir en el buscador (por ejemplo `keratina`).
+3. Ver el JSON crudo: `http://localhost/Programacion-web/api/buscar_productos.php?q=keratina`
+4. Probar los errores: `api/buscar_productos.php?id=999` (404) y `api/buscar_productos.php?id=abc` (400).
+5. En las herramientas del navegador (F12 → Network → Fetch/XHR) se ve la petición sin recarga de página.
+
+### Capturas
+**1. Boutique cargada desde la base de datos**
+Los productos llegan por JSON y se dibujan en la grilla.
+![Boutique](docs/capturas/tp9-01-boutique.png)
+
+**2. Búsqueda en vivo**
+Al escribir `sha`, la grilla muestra solo el producto que coincide, sin recargar.
+![Búsqueda](docs/capturas/tp9-02-busqueda.png)
+
+**3. Búsqueda sin resultados**
+El servidor devuelve una lista vacía y la página muestra un mensaje.
+![Sin resultados](docs/capturas/tp9-03-sin-resultados.png)
+
+**4. Respuesta JSON del endpoint**
+![JSON](docs/capturas/tp9-04-json.png)
+
+**5. Petición Fetch en segundo plano (DevTools → Red)**
+Cada letra genera una petición `fetch` con estado 200, sin recargar la página.
+![Network](docs/capturas/tp9-05-network.png)
+
+**6. Error 404 controlado**
+Un `id` inexistente devuelve JSON con el estado de error.
+![Error 404](docs/capturas/tp9-06-error-404.png)

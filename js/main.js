@@ -12,21 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const pintarBadge = () => { if (badge) { const n = leerCarrito(); badge.textContent = n; badge.hidden = n === 0; } };
   pintarBadge();
 
-  document.querySelectorAll('[data-agregar]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const qty = btn.closest('.compra')?.querySelector('[data-valor]');
-      guardarCarrito(leerCarrito() + (qty ? parseInt(qty.textContent, 10) : 1));
-      pintarBadge();
-    });
+  // TP9: delegación de eventos -> también funciona con los productos creados dinámicamente por fetch
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-agregar]');
+    if (!btn) return;
+    const qty = btn.closest('.compra')?.querySelector('[data-valor]');
+    guardarCarrito(leerCarrito() + (qty ? parseInt(qty.textContent, 10) : 1));
+    pintarBadge();
   });
 
   /* ---------- Favoritos ---------- */
-  document.querySelectorAll('.producto__fav').forEach((b) => {
-    b.addEventListener('click', () => {
-      b.classList.toggle('activo');
-      b.querySelector('i').className = b.classList.contains('activo') ? 'bi bi-heart-fill' : 'bi bi-heart';
-      b.querySelector('i').style.color = b.classList.contains('activo') ? 'var(--k-rosa)' : '';
-    });
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('.producto__fav');
+    if (!b) return;
+    b.classList.toggle('activo');
+    b.querySelector('i').className = b.classList.contains('activo') ? 'bi bi-heart-fill' : 'bi bi-heart';
+    b.querySelector('i').style.color = b.classList.contains('activo') ? 'var(--k-rosa)' : '';
   });
 
   /* ---------- Selector de cantidad ---------- */
@@ -54,8 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-quitar]').forEach((b) => b.addEventListener('click', () => { b.closest('.carrito-item').remove(); recalcularCarrito(); }));
 
   /* ---------- Filtros de la boutique ---------- */
+  // TP9: si la grilla es dinámica (data-dinamico), los filtros los maneja js/buscador.js con fetch
   const chips = document.querySelectorAll('[data-filtro]');
-  if (chips.length) {
+  const grillaDinamica = document.querySelector('#gridProductos[data-dinamico]');
+  if (chips.length && !grillaDinamica) {
     chips.forEach((chip) => chip.addEventListener('click', () => {
       chips.forEach((c) => c.classList.remove('activo'));
       chip.classList.add('activo');
